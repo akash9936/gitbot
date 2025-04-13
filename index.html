@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Krishna Vani - Bhagavad Gita Wisdom</title>
+
+  <!-- Botpress Chat Injection Script -->
+  <script src="https://cdn.botpress.cloud/webchat/v2.3/inject.js"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+    }
+
+    body {
+      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url('https://pixabay.com/illustrations/god-hindu-krishna-india-vrindavan-8784101/') center/cover no-repeat fixed;
+      color: #f5ebd0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(46, 78, 117, 0.2) 0%, rgba(18, 40, 76, 0.4) 100%);
+      z-index: -1;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-bottom: 2rem;
+      width: 100%;
+      border-bottom: 1px solid rgba(255, 221, 85, 0.2);
+    }
+
+    .logo {
+      margin-bottom: 1rem;
+      font-size: 2.5rem;
+      font-weight: 300;
+      letter-spacing: 3px;
+      color: #ffdb4d;
+    }
+
+    .logo-symbol {
+      display: inline-block;
+      width: 70px;
+      height: 70px;
+      background: rgba(255, 215, 0, 0.15);
+      border: 1px solid rgba(255, 215, 0, 0.3);
+      border-radius: 50%;
+      line-height: 70px;
+      margin-bottom: 1rem;
+    }
+
+    .sanskrit {
+      font-style: italic;
+      font-size: 1rem;
+      opacity: 0.9;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+      color: #ffd866;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 300;
+      margin-bottom: 1rem;
+      letter-spacing: 2px;
+      color: #ffd866;
+    }
+
+    .tagline {
+      font-size: 1.2rem;
+      font-weight: 300;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 1200px;
+      padding: 0 1rem;
+    }
+
+    .content-container {
+      display: flex;
+      width: 100%;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .welcome-container {
+      background: rgba(23, 43, 77, 0.7);
+      backdrop-filter: blur(10px);
+      border-radius: 8px;
+      padding: 2rem;
+      flex: 1;
+      min-width: 300px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 215, 0, 0.15);
+    }
+
+    .chat-container {
+      background: rgba(23, 43, 77, 0.7);
+      backdrop-filter: blur(10px);
+      border-radius: 8px;
+      flex: 1;
+      min-width: 350px;
+      max-width: 500px;
+      height: 600px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 215, 0, 0.15);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .chat-header {
+      padding: 1rem;
+      border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+      display: flex;
+      align-items: center;
+    }
+
+    .chat-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 1rem;
+      background: rgba(255, 215, 0, 0.15);
+      border: 1px solid rgba(255, 215, 0, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    .chat-title {
+      flex: 1;
+    }
+
+    .chat-title h3 {
+      margin: 0;
+      font-weight: 400;
+      color: #ffd866;
+    }
+
+    .chat-title p {
+      margin: 0;
+      font-size: 0.8rem;
+      opacity: 0.8;
+    }
+
+    #webchat {
+      flex: 1;
+      width: 100% !important;
+      height: 100% !important;
+      min-height: 400px !important;
+      position: relative;
+      display: block !important;
+      background: #fdf6e3;
+      /* soft parchment-like background */
+      font-family: 'Georgia', serif;
+    }
+
+    /* Hide default button and header */
+    #webchat .bpw-widget-btn,
+    #webchat .bpw-header-container {
+      display: none !important;
+    }
+
+    /* Chat container styling */
+    #webchat .bpw-chat-container {
+      height: 50% !important;
+      border-radius: 0 0 8px 8px !important;
+      background-color: transparent !important;
+    }
+
+    /* Choice buttons */
+    #webchat .bpw-keyboard-single-choice {
+      background: #f5f0e6 !important;
+      border-top: 1px solid #e6d5b8 !important;
+    }
+
+    /* Composer area */
+    #webchat .bpw-composer {
+      background: #fff8e1 !important;
+    }
+
+    #webchat .bpw-composer textarea {
+      color: #5c3a1d !important;
+      background: #fff8e1 !important;
+      border: 1px solid #e6d5b8 !important;
+      border-radius: 4px;
+    }
+
+    /* Message text */
+    #webchat .bpw-message {
+      color: #3d2b1f !important;
+    }
+
+    /* Bot message style */
+    #webchat .bpw-from-bot .bpw-message-content {
+      background: #ede0c8 !important;
+      color: #4a342e !important;
+      border-left: 4px solid #d4af37 !important;
+      /* golden line like scripture */
+      padding: 8px 12px;
+      border-radius: 8px;
+    }
+
+    /* User message style */
+    #webchat .bpw-from-user .bpw-message-content {
+      background: #fce8b2 !important;
+      color: #3d2b1f !important;
+      padding: 8px 12px;
+      border-radius: 8px;
+    }
+
+
+    h2 {
+      margin-bottom: 1rem;
+      font-weight: 400;
+      color: #ffd866;
+    }
+
+    p {
+      line-height: 1.7;
+      margin-bottom: 1rem;
+      font-weight: 300;
+      font-size: 1.05rem;
+    }
+
+    .quote {
+      font-style: italic;
+      text-align: center;
+      padding: 1.5rem;
+      opacity: 0.95;
+      border-left: 2px solid rgba(255, 215, 0, 0.3);
+      border-right: 2px solid rgba(255, 215, 0, 0.3);
+      margin: 1.5rem 0;
+      color: #ffd866;
+    }
+
+    .quote-source {
+      display: block;
+      text-align: right;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin: 2rem 0;
+    }
+
+    .feature {
+      flex-basis: 30%;
+      min-width: 200px;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      padding: 1rem;
+      border: 1px solid rgba(255, 215, 0, 0.1);
+      border-radius: 8px;
+      background: rgba(255, 215, 0, 0.05);
+    }
+
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      display: block;
+      color: #ffd866;
+    }
+
+    .feature h3 {
+      color: #ffd866;
+      margin-bottom: 0.5rem;
+      font-weight: 400;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      margin-top: auto;
+      font-size: 0.9rem;
+      opacity: 0.7;
+      width: 100%;
+      border-top: 1px solid rgba(255, 215, 0, 0.1);
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      .content-container {
+        flex-direction: column;
+      }
+
+      .welcome-container {
+        padding: 1.5rem;
+      }
+
+      .chat-container {
+        width: 100%;
+        max-width: none;
+        height: 500px;
+      }
+
+      .feature {
+        flex-basis: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="overlay"></div>
+
+  <header>
+    <div class="logo-symbol">🪔</div>
+    <div class="sanskrit">॥ श्रीमद्भगवद्गीता ॥</div>
+    <h1>Krishna Vani</h1>
+    <p class="tagline">Divine wisdom from the Bhagavad Gita for your spiritual journey</p>
+  </header>
+
+  <main>
+    <div class="content-container">
+      <div class="welcome-container">
+        <h2>Welcome to the Path of Dharma</h2>
+        <p>In the midst of life's battlefield, Lord Krishna's timeless wisdom guides us toward righteousness, inner
+          peace, and self-realization. This spiritual companion is designed to help you explore the profound teachings
+          of the Bhagavad Gita and apply them to your daily life.</p>
+
+        <div class="quote">
+          "Whenever dharma declines and adharma prevails, I manifest myself. For the protection of the good and the
+          destruction of evil, to establish dharma, I appear in every age."
+          <span class="quote-source">— Bhagavad Gita, Chapter 4, Verse 7-8</span>
+        </div>
+
+        <div class="features">
+          <div class="feature">
+            <span class="feature-icon">🧘</span>
+            <h3>Karma Yoga</h3>
+            <p>Discover the path of selfless action and performing your duties without attachment to results.</p>
+          </div>
+          <div class="feature">
+            <span class="feature-icon">💫</span>
+            <h3>Bhakti Yoga</h3>
+            <p>Explore devotional practices and the loving connection to the divine presence.</p>
+          </div>
+          <div class="feature">
+            <span class="feature-icon">🕊️</span>
+            <h3>Jnana Yoga</h3>
+            <p>Engage in self-inquiry and contemplation to realize your true nature.</p>
+          </div>
+          <div class="feature">
+            <span class="feature-icon">🧎</span>
+            <h3>Dhyana Yoga</h3>
+            <p>Master the art of meditation to attain inner stillness and union with the divine.</p>
+          </div>
+        </div>
+
+        <p>Like Arjuna received guidance on the battlefield of Kurukshetra, allow Krishna's divine wisdom to illuminate
+          your path through life's challenges and joys. This spiritual guide draws from the eternal teachings of the
+          Gita to provide insight, comfort, and direction.</p>
+      </div>
+
+      <div class="chat-container">
+        <div class="chat-header">
+          <div class="chat-avatar">🪶</div>
+          <div class="chat-title">
+            <h3>Krishna's Wisdom</h3>
+            <p>Seek guidance from Bhagavad Gita</p>
+          </div>
+        </div>
+        <!-- Botpress chat container -->
+        <div id="webchat"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>ॐ नमो भगवते वासुदेवाय • Honoring the divine in all beings • © 2025</p>
+  </footer>
+
+  <!-- Botpress Chat Initialization Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Give more time for Botpress to load completely
+      setTimeout(function () {
+        if (typeof window.botpress !== 'undefined') {
+          window.botpress.init({
+            "botId": "233bea81-a61d-43a2-8123-c4103ce3c9d7",
+            "configuration": {
+              // Your existing configuration...
+              "hideWidget": false, // Try changing this to false
+              // Rest of your configuration...
+            },
+            "clientId": "47eec1fd-b67f-4d15-8a1c-9910947845f9",
+            "selector": "#webchat"
+          });
+
+          // Ensure chat opens after initialization
+          setTimeout(function () {
+            if (window.botpress && window.botpress.open) {
+              window.botpress.open();
+            }
+          }, 1000);
+        }
+      }, 1000); // Increased timeout
+    });
+  </script>
+</body>
+
+</html>
